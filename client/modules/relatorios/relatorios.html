@@ -1,0 +1,78 @@
+<template name="relatorios">
+    <!--    <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Relatórios</h1>
+            </div>
+    
+            <table class='table'>
+                <thead>
+                    <tr><th>Data</th>
+                        <th>Empresa</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each relatorios}}
+                    <tr>
+                        <td>{{data}}</td>
+                        <td>{{empresa}}</td>
+                        <td><a href="/atualiza-relatorio/{{this._id}}">Editar</a></td>
+                <button class="close">&times;</button>
+                </tr>
+                {{/each}}
+                </tbody>
+            </table>
+        </div>-->
+    <div class="row">
+
+        <div class="col-lg-12">
+            <h1 class="page-header">Relatórios</h1>
+        </div>
+    </div>
+    {{#each relatorios}}
+    <div class="row">
+        <div class="col-lg-12">
+            {{#if currentUser}}
+            <h2>{{converteData data}} - {{empresa}} - 
+                <a href="/edita-relatorio/{{this._id}}" class="btn btn-primary">Editar</a> 
+                <button class="btn btn-danger">Remover</button>
+
+
+                <a href="/gera-relatorio/{{this._id}}" class="btn btn-primary">Gera Relatório</a>
+            </h2>
+            {{else}}
+            <h2>{{converteData data}} - {{empresa}} - 
+                <a href="/edita-relatorio/{{this._id}}" class="btn btn-primary">Editar</a> 
+                <button class="btn btn-danger">Remover</button>
+            </h2>
+            {{/if}}
+        </div>
+        <!--        <div class="col-lg-12">
+                    <button class="close">&times;</button>
+                </div>-->
+    </div>
+    <div class="row">
+
+        <div class="col-lg-12">
+            <table class='table'>
+                <thead>
+                    <tr><th>Número da Isca</th>
+                        <th>Status</th>
+                        <th>Observação</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each iscas}}
+                    <tr>
+                        <td>{{numero}}</td>
+                        <td>{{status}}</td>
+                        <td>{{observacao}}</td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+
+
+        </div>
+    </div>
+    {{/each}}
+</template>
